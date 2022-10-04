@@ -10,6 +10,12 @@ This appliance does the following:
 
 ## before
 
+- Deploy the device-opendkim package.
+
+```
+[root@server ~]# dnf install device-opendkim
+```
+
 - Deploy any RSA keys needed to /etc/pki/tls/private, root only.
 
 ```
@@ -23,7 +29,7 @@ total 12
 To add domains, do the following:
 
 ```
-device services mail smtp dkim add domain=example.com selector=default key=example-dkim
+[root@server ~]# device services mail smtp dkim add domain=example.com selector=default key=example-dkim
 ```
 
 ## enable
