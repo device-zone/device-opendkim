@@ -1,0 +1,27 @@
+#!/bin/sh
+  
+set -e
+umask 0002
+
+if [ "$1" == "--" ]; then
+
+  for dkim in $(find "/etc/device/services/mail/smtp/dkim" -mindepth 1 -maxdepth 1 -type l)
+  do
+    if [ ! -e "$dkim/domain.txt" ]; then
+      continue;
+    fi
+    domain=$(head -n 1 "${dkim}/domain.txt")
+    selector=default
+    if [ -s "${dkim}/selector.txt" ]; then
+      selector=$(head -n 1 "${dkim}/selector.txt")
+    fi
+    if [ -s "${dkim}/key.pem" ]; then
+      key=$(openssl rsa -in "${dkim}/key.pem" -pubout -outform der 2>/dev/null | openssl base64 -A)
+
+      echo "${selector}._domainkey.${domain}. 86400 IN TXT \"v=DKIM1; p=${key}\""
+
+    fi
+  done
+
+fi
+
