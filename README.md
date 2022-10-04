@@ -7,6 +7,7 @@ This appliance does the following:
 - Binds securely to the unix domain socket /run/opendkim/opendkim.sock.
 - Optionally adds domains, selectors and keys to the configuration.
 - Autostarts on server restart.
+- Zero Trust configuration.
 
 ## before
 
