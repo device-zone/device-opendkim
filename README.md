@@ -48,3 +48,11 @@ To switch the appliance off, run this.
 [root@server ~]# device services mail smtp dkim disable  
 ```
 
+## show dns TXT record
+
+To see the resulting DNS TXT record, run this.
+
+```
+default._domainkey.example.com. 86400 IN TXT "v=DKIM1; p=MIGfMA0G[snip]"
+```
+
