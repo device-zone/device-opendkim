@@ -1,0 +1,18 @@
+# systemd service for managing all opendkim autoconfiguration.
+
+[Unit]
+Description=OpenDKIM Configuration Autodiscovery
+#Requires=opendkim.service
+#PartOf=opendkim.service
+#ReloadPropagatedFrom=opendkim.service
+Before=opendkim.service
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash /usr/libexec/device-opendkim-autodiscovery
+ExecReload=/bin/bash /usr/libexec/device-opendkim-autodiscovery
+RemainAfterExit=on
+
+[Install]
+WantedBy=multi-user.target
+

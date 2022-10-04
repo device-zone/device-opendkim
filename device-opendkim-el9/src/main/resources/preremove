@@ -1,0 +1,7 @@
+if [ $1 = 0 ]; then
+  /usr/bin/systemctl stop opendkim-autodiscovery.service
+  /usr/bin/systemctl stop opendkim.service
+  /usr/bin/systemctl disable opendkim-autodiscovery.service
+  /usr/bin/systemctl disable opendkim.service
+fi
+
