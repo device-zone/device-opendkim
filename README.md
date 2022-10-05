@@ -3,7 +3,7 @@ Provides an OpenDKIM appliance.
 
 This appliance does the following:
 
-- All parameters syntax checked and canonicalised.
+- All parameters passed to the device commands are syntax checked and canonicalised, with bash completion.
 - Automatically configures OpenDKIM's configuration files before startup.
 - Binds securely to the unix domain socket /run/opendkim/opendkim.sock.
 - Optionally adds domains, selectors and keys to the configuration.
