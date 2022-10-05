@@ -8,7 +8,7 @@
 
   <artifactId>device-opendkim</artifactId>
   <groupId>zone.device.platform</groupId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>0.9.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>device opendkim package</name>
   <description>Packaging for the opendkim appliance</description>
