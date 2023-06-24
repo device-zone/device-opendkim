@@ -6,11 +6,12 @@ Description=OpenDKIM Configuration Autodiscovery
 #PartOf=opendkim.service
 #ReloadPropagatedFrom=opendkim.service
 Before=opendkim.service
+Before=postfix-autodiscovery.service
 
 [Service]
 Type=oneshot
-ExecStart=/bin/bash /usr/libexec/device-opendkim-autodiscovery
-ExecReload=/bin/bash /usr/libexec/device-opendkim-autodiscovery
+ExecStart=/bin/bash /usr/libexec/device-autodiscovery/opendkim
+ExecReload=/bin/bash /usr/libexec/device-autodiscovery/opendkim
 RemainAfterExit=on
 
 [Install]
