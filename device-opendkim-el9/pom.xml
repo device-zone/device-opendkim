@@ -151,12 +151,6 @@
               <groupname>root</groupname>
               <sources>
                 <source>
-                  <location>target/classes/usr/libexec/device/services/mail/smtp/dkim/enable</location>
-                </source>
-                <source>
-                  <location>target/classes/usr/libexec/device/services/mail/smtp/dkim/disable</location>
-                </source>
-                <source>
                   <location>target/classes/usr/libexec/device/services/mail/smtp/dkim/add</location>
                 </source>
                 <source>

@@ -3,16 +3,22 @@
 set -e
 umask 0002
 
+OPTONS="--set domain --hostname selector --required --fqdn domain --symlink-base=/etc/pki/tls/private --symlink-suffix=.pem --symlink=key"
+
 if [ "$1" == "--" ]; then
 
-  /usr/libexec/device-set --set domain --fqdn domain --hostname selector --symlink-base=/etc/pki/tls/private --symlink-suffix=.pem --symlink=key "$@"
+  /usr/libexec/device-set ${OPTIONS} "$@"
 
-  /usr/bin/sudo /usr/bin/systemctl try-reload-or-restart opendkim-autodiscovery.service
-  /usr/bin/sudo /usr/bin/systemctl try-reload-or-restart opendkim.service
+  if systemctl is-active --quiet opendkim-autodiscovery.service; then
+    /usr/bin/sudo /usr/bin/systemctl try-reload-or-restart opendkim-autodiscovery.service
+    /usr/bin/sudo /usr/bin/systemctl try-reload-or-restart opendkim.service
+  else
+    echo "dkim will be enabled on next reboot."
+  fi
 
 elif [ "$1" == "-c" ]; then
 
-  /usr/libexec/device-set --set domain --fqdn domain --hostname selector --symlink-base=/etc/pki/tls/private --symlink-suffix=.pem --symlink=key "$@"
+  /usr/libexec/device-set ${OPTIONS} "$@"
 
 fi
 
