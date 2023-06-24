@@ -10,9 +10,6 @@ Before=postfix-autodiscovery.service
 Type=oneshot
 ExecStart=/bin/bash /usr/libexec/device-autodiscovery/opendkim
 ExecReload=/bin/bash /usr/libexec/device-autodiscovery/opendkim
-ExecStartPost=/usr/bin/install -m 755 -d /run/milters
-ExecStartPost=/usr/bin/ln -s /run/opendkim/opendkim.sock /run/milters/10-opendkim
-ExecStop=/usr/bin/rm /run/milters/10-opendkim
 RemainAfterExit=on
 
 [Install]
