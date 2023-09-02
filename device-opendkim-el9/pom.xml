@@ -160,6 +160,9 @@
                   <location>target/classes/usr/libexec/device/services/mail/smtp/dkim/set</location>
                 </source>
                 <source>
+                  <location>target/classes/usr/libexec/device/services/mail/smtp/dkim/show</location>
+                </source>
+                <source>
                   <location>target/classes/usr/libexec/device/services/mail/smtp/dkim/show-dns</location>
                 </source>
               </sources>
